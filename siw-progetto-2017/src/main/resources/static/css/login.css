@@ -1,0 +1,50 @@
+body {
+   background-image: url("login.jpg"); 
+}
+
+h1 {
+	text-align: center;
+	font-size: 70px;
+	font-style: italic;
+}
+
+h2 {
+	text-align: center;
+	font-size: 40px;
+	font-style: italic;
+}
+h3{
+	font-size:30px;
+	font-style: italic;
+}
+h4 {
+	text-align: center;
+	font-size: 50px;	
+	font-style: italic;
+}
+
+h5 {
+	text-align: center;
+	font-size: 50px;	
+	font-style: italic;
+}
+
+
+div {
+	text-align: center;
+	font-size: 40px;
+}
+
+table{
+	margin-left:auto; 
+	margin-right:auto;
+	text-align: center;
+	border: 1px solid black;
+	width: 80%;
+}
+
+th{
+	top:25%;
+	margin-left: auto;
+	margin-top: auto;
+}

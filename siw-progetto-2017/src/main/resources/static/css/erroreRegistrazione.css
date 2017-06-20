@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+body {
+   background-image: url("login.jpg"); 
+}
+h1{
+	font-size:40pt;
+	text-align: center;
+}
+div {
+	text-align: center;
+	font-size: 30px;
+}

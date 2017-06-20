@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Gestione amministratore</title>
+<link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+	<div>
+			<a href="index.html">Home</a>
+				Contatti
+	</div>
+	<h1>
+		Bentornato 
+	</h1>
+	<table>
+		<tr>
+			<th><h2>Inserisci Autore:</h2></th>
+			<th><h2>Inserisci Opera:</h2></th>
+		</tr>
+		<tr>
+			<th>
+				<form name="a" th:action="@{/aggiungiAutore}" th:object="${autore}"
+					method="post">
+					<div>
+						<div>
+							<span>Nome: <input type="text" id="nome" name="nome" /></span>
+						</div>
+						<div>
+							<span>Cognome: <input type="text" id="cognome"
+								name="cognome" /></span>
+						</div>
+						<div>
+							<span>Nazionalità: <input type="text" id="nazionalita"
+								name="nazionalita" /></span>
+						</div>
+						<div>
+							<span>Data di Nascita: <input type="date" id="dataNascita"
+								name="data_nascita" /></span>
+						</div>
+						<div>
+							<span>Data di Morte: <input type="date" id="dataMorte"
+								name="data_morte" /></span>
+						</div>
+						<button type="submit">Invia</button>
+					</div>
+				</form>
+			</th>
+
+			<th>
+				<form name="a" th:action="@{/aggiungiOpera}" th:object="${opera}"
+					method="post">
+					<div>
+						<div>
+							<span>Titolo: <input type="text" id="titolo" name="titolo" /></span>
+						</div>
+						<div>
+							<span>Tecnica: <input type="text" id="tecnica"
+								name="tecnica" /></span>
+						</div>
+						<div>
+							<span>Anno: <input type="text" id="anno" name="anno" /></span>
+						</div>
+						<div>
+							<span>Dimensioni: <input type="text" id="dimensioni"
+								name="dimensioni" /></span>
+						</div>
+						<div>
+							Autore: <select name="autore">
+								<option th:each="aut : ${autori}" th:value="${{aut.id}}"
+									th:text="${aut.nome}"></option>
+							</select>
+						</div>
+						<button type="submit">Invia</button>
+					</div>
+				</form>
+			</th>
+			<th>
+				<div>
+				<h4>Elimina Opera:</h4>
+					<form name="a" th:action="@{/rimuoviOpera}" th:object="${opera}" method="post">
+						<select name="opera">
+							<option th:each="op : ${opere}" th:value="${{op.id}}"
+								th:text="${op.titolo}"></option>
+						</select>
+						<button type="submit">Invia</button>
+					</form>
+				</div>
+			</th>
+		</tr>
+	</table>
+	<div>
+		<h2>Opere presenti nella galleria:</h2>
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Tecnica</th>
+				<th>Autore</th>
+			</tr>
+			<tr class="yellow" th:each="opera : ${opere}">
+				<td th:text="${opera.titolo}"></td>
+				<td th:text="${opera.tecnica}"></td>
+				<td><span th:text="${opera.autore.nome}"></span></td>
+			</tr>
+		</table>
+	</div>
+	<h1>
+		<br />
+	</h1>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="/css/login.css"/>
+<meta charset="ISO-8859-1"/>
+<title>Errore di login</title>
+</head>
+<body>
+<h1>Inserisci i dati dell'utente</h1>
+	<form action="#" th:action="@{/loginUtente}" th:object="${utente}" method="post">
+		<div>
+			<div>
+				<span th:text="#{label.username}">Username: </span>
+				<span><input type="text" th:field="*{username}" /></span>
+				<span th:if="${#fields.hasErrors('username')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.password}">Password: </span>
+				<span><input type="password" th:field="*{password}" /></span>
+				<span th:if="${#fields.hasErrors('password')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span><button type="submit">Submit</button></span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

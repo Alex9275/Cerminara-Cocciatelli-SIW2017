@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="/css/login.css"/>
+<meta charset="ISO-8859-1"/>
+<title>Errore di login</title>
+</head>
+<body>
+<div><h5>L'username che hai inserito non esiste, prova di nuovo</h5></div>
+	<form action="#" th:action="@{/loginUtente}" th:object="${utente}" method="post">
+		<div>
+			<div>
+				<span th:text="#{label.username}">Username: </span>	
+				<span><input type="text" th:field="*{username}" /></span>
+			</div>
+			<div>
+				<span th:text="#{label.password}">Password: </span>
+				<span><input type="password" th:field="*{password}" /></span>
+			</div>
+			<div>
+				<span><button type="submit">Invia</button></span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

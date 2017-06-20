@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Login effettuato</title>
+<link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+	<div>
+		<a href="index.html">Home</a> Contatti
+		<form name="a" th:action="@{/aggiornaUtente}" th:object="${utente}" method="post">
+		<input th:type="hidden" th:value="${utente.username}" name="id" />
+		<span>Vuoi cambiare username? inserisci quella nuova qui: <input type="text" id="username" name="username" /></span>
+		<span><button type="submit">Invia</button></span>
+		</form>
+	</div>
+
+	<h1>
+		<br></br>Bentornato <span th:text="	${utente.username}"></span>
+	</h1>
+
+	<h2>Nel museo ci sono le seguenti opere:</h2>
+	<div>
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Tecnica</th>
+				<th>Autore</th>
+			</tr>
+			<tr th:each="opera : ${opere}">
+				<td th:text="${opera.titolo}"></td>
+				<td th:text="${opera.tecnica}"></td>
+				<td>
+						<span th:text="${opera.autore.nome}"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
